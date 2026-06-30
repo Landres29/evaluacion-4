@@ -45,7 +45,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>CRUD con LocalStorage</h1>
+      <h1 className="app-title">CRUD con LocalStorage</h1>
 
       <Form
         addOrUpdateItem={addOrUpdateItem}

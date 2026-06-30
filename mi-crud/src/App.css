@@ -1,184 +1,133 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
+/* IMPORTACIÓN DE LA FUENTE BONITA (Poppins) DESDE GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-}
-
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
-
-#center {
+/* Configuración global para asegurar que no se quede pegado */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif; /* Cambiado a Poppins */
+  background-color: #464646;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
 }
 
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
+/* Contenedor central (tarjeta) responsivo */
+.App {
+  background-color: #bfa2f6;
+  width: 90%; 
+  /* CAMBIO: Subimos de 400px a 450px para que sea un poquito más ancha la tarjeta */
+  max-width: 450px; 
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(57, 255, 3, 0.1);
+  box-sizing: border-box;
 
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+  /* Mantiene la separación arriba y el centrado horizontal automático para que se encoja bien */
+  margin: 40px auto 20px auto; 
 }
 
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
+/* Estilo al título */
+.app-title {
+  font-family: 'Poppins', sans-serif; /* Asegura la fuente en el título */
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #333333;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-#next-steps ul {
-  list-style: none;
-  padding: 0;
+/* Estilo al formulario */
+.item-form {
   display: flex;
   gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+  margin-bottom: 20px;
 }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
+/* Input con estilo y efecto de foco */
+.form-input {
+  flex: 1;
+  padding: 8px 12px;
+  font-family: 'Poppins', sans-serif; /* Forzada la fuente en el input */
+  font-size: 1rem;
+  border: 2px solid #5c0a0a;
+  border-radius: 6px;
+  outline: none;
+  /* Crucial: permite que el campo de texto reduzca su tamaño de forma fluida */
+  min-width: 0; 
 }
 
-.ticks {
-  position: relative;
-  width: 100%;
+.form-input:focus {
+  border-color: #007bff;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
+/* Botón destacado */
+.btn-submit {
+  background-color: #170183;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 8px 16px;
+  font-family: 'Poppins', sans-serif; /* Forzada la fuente en el botón */
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+}
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
+/* Estilo a la lista */
+.items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Cada ítem dentro de la lista */
+.list-item {
+  background-color: #363636;
+  padding: 10px 14px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  border: 1px solid #5082b5;
+  gap: 10px;
+}
+
+/* Asegura la fuente para el texto dentro de cada ítem */
+.list-item span {
+  font-family: 'Poppins', sans-serif;
+  color: white; /* Añadido un color claro por defecto para contrastar con tu fondo #363636 */
+}
+
+/* Contenedor de acciones */
+.item-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* Estilo general de botones de acción */
+.btn-action {
+  border: none;
+  padding: 6px 12px;
+  font-family: 'Poppins', sans-serif; /* Forzada la fuente en los botones de acción */
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Botón Editar en verde */
+.btn-edit {
+  background-color: #28a745;
+}
+
+/* Botón Eliminar en rojo */
+.btn-delete {
+  background-color: #dc3545;
 }

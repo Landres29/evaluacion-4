@@ -21,14 +21,15 @@ function Form({ addOrUpdateItem, itemToEdit }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="item-form">
       <input
         type="text"
+        className="form-input"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
       />
 
-      <button type="submit">
+      <button type="submit" className="btn-submit">
         {itemToEdit ? 'Actualizar' : 'Agregar'}
       </button>
     </form>
