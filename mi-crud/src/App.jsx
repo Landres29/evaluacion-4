@@ -35,8 +35,12 @@ function App() {
     }
   };
 
+  // REQUISITO: Confirmación nativa antes de eliminar un elemento
   const deleteItem = (id) => {
-    setItems(items.filter((item) => item.id !== id));
+    const confirmar = window.confirm("¿Estás seguro de que deseas eliminar este elemento?");
+    if (confirmar) {
+      setItems(items.filter((item) => item.id !== id));
+    }
   };
 
   const editItem = (item) => {
@@ -51,6 +55,9 @@ function App() {
         addOrUpdateItem={addOrUpdateItem}
         itemToEdit={itemToEdit}
       />
+
+      {/* REQUISITO: Contador dinámico con la cantidad total de elementos */}
+      <p className="items-counter">Total: {items.length}</p>
 
       <List
         items={items}

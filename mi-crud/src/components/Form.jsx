@@ -14,10 +14,14 @@ function Form({ addOrUpdateItem, itemToEdit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (inputValue.trim()) {
-      addOrUpdateItem(inputValue);
-      setInputValue("");
+    // REQUISITO: Validación de campos vacíos o con solo espacios
+    if (inputValue.trim() === "") {
+      alert("Por favor, ingresa un texto válido. El campo no puede estar vacío.");
+      return;
     }
+
+    addOrUpdateItem(inputValue);
+    setInputValue("");
   };
 
   return (
