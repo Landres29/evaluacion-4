@@ -74,7 +74,29 @@ body {
   white-space: nowrap;
 }
 
-/* Estilo para el nuevo contador del commit 2 */
+/* NUEVO DEL COMMIT 3: Caja del buscador */
+.search-container {
+  margin-bottom: 15px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  border: 2px solid #5082b5;
+  background-color: #363636;
+  color: white;
+  border-radius: 6px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.search-input::placeholder {
+  color: #bbb;
+}
+
+/* Estilo para el contador del commit 2 */
 .items-counter {
   font-family: 'Poppins', sans-serif;
   font-size: 0.95rem;
@@ -111,6 +133,12 @@ body {
   color: white;
 }
 
+/* NUEVO DEL COMMIT 3: Cuando está completado se tacha el texto */
+.list-item span.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
 /* Contenedor de acciones */
 .item-actions {
   display: flex;
@@ -129,12 +157,32 @@ body {
   color: white;
 }
 
-/* Botón Editar (Mantiene el color de acción general) */
+/* NUEVO DEL COMMIT 3: Color del botón Listo */
+.btn-complete {
+  background-color: #3182ce;
+}
+
+/* Botón Editar en verde */
 .btn-edit {
   background-color: #28a745;
 }
 
-/* Botón Eliminar (Mantiene el color de acción general) */
+/* Botón Eliminar en rojo */
 .btn-delete {
   background-color: #dc3545;
+}
+
+/* NUEVO DEL COMMIT 3: Botón Borrar Todo abajo */
+.btn-clear-all {
+  width: 100%;
+  background-color: #742a2a;
+  color: white;
+  border: 1px solid #e53e3e;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
 }
